@@ -72,8 +72,12 @@ export const GpxMap = ({
 
   // console.log(polylinePoints);
 
+  const leafletOptions = {
+    attributionControl: false, // Disable attribution control
+  };
+
   return (
-    <MapContainer center={new LatLng(45, 25)} zoom={7}>
+    <MapContainer center={new LatLng(45, 25)} zoom={7} {...leafletOptions}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="OpenStreetMap"

@@ -5,7 +5,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Typography } from "@mui/material";
-import { format, formatISO, parseISO } from "date-fns";
+import { format } from "date-fns";
 
 interface TrackDetailsProps {
   trackName: string;
@@ -58,7 +58,7 @@ export const TrackDetailsPane = ({
         </TimelineItem>
         {intermediaryNames.map((name: string, index: number) => {
           return (
-            <TimelineItem>
+            <TimelineItem key={`${name}-${index}`}>
               <TimelineSeparator>
                 <TimelineDot
                   variant="outlined"

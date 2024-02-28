@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import { XMLParser } from "fast-xml-parser";
 import * as geolib from "geolib";
 import { LatLng, LatLngExpression } from "leaflet";
@@ -372,8 +372,8 @@ export const PageSingleTrack = () => {
   }, [hoveredPointIndex, isShownHoveredPoint]);
 
   return (
-    <Grid container spacing={2} sx={{ height: "900px" }}>
-      <Grid item xs={4} sx={{ border: "1px solid red" }}>
+    <Grid container sx={{ height: "900px" }}>
+      <Grid item xs={4}>
         <TrackDetailsPane
           trackName={hardcodedTrackDetails?.name}
           date={trackDate}
@@ -386,48 +386,50 @@ export const PageSingleTrack = () => {
         />
       </Grid>
       <Grid item xs={8} container>
-        <Grid
-          item
-          xs={12}
-          sx={{ height: "650px", border: "1px solid #000000" }}
-        >
-          <GpxMap
-            polylinePoints={polylinePoints}
-            trackBounds={trackBounds}
-            milestones={majorMilestonePoints}
-            hoveredPointCoordinates={hoveredPointCoordinates}
-            setHoveredPointCoordinates={setHoveredPointCoordinates}
-            // startMarkerLatLng={startMarkerLatLng}
-            isShownHoveredPoint={isShownHoveredPoint}
-            setIsShownHoveredPoint={setIsShownHoveredPoint}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sx={{ height: "350px", border: "1px solid #000000" }}
-        >
-          <ChartElevationProfile
-            data={data}
-            dataDistance={dataDistance}
-            dataMainPoints={dataMainPoints}
-            // --- hover
-            hoveredPointCoordinates={hoveredPointCoordinates}
-            setHoveredPointCoordinates={setHoveredPointCoordinates}
-            isShownHoveredPoint={isShownHoveredPoint}
-            setIsShownHoveredPoint={setIsShownHoveredPoint}
-            hoveredPointIndex={hoveredPointIndex}
-            setHoveredPointIndex={setHoveredPointIndex}
-            // --- hover
+        <Stack spacing={1} sx={{ width: "100%" }}>
+          <Grid
+            item
+            xs={12}
+            sx={{ height: "650px", border: "1px solid #000000" }}
+          >
+            <GpxMap
+              polylinePoints={polylinePoints}
+              trackBounds={trackBounds}
+              milestones={majorMilestonePoints}
+              hoveredPointCoordinates={hoveredPointCoordinates}
+              setHoveredPointCoordinates={setHoveredPointCoordinates}
+              // startMarkerLatLng={startMarkerLatLng}
+              isShownHoveredPoint={isShownHoveredPoint}
+              setIsShownHoveredPoint={setIsShownHoveredPoint}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sx={{ height: "350px", border: "1px solid #000000" }}
+          >
+            <ChartElevationProfile
+              data={data}
+              dataDistance={dataDistance}
+              dataMainPoints={dataMainPoints}
+              // --- hover
+              hoveredPointCoordinates={hoveredPointCoordinates}
+              setHoveredPointCoordinates={setHoveredPointCoordinates}
+              isShownHoveredPoint={isShownHoveredPoint}
+              setIsShownHoveredPoint={setIsShownHoveredPoint}
+              hoveredPointIndex={hoveredPointIndex}
+              setHoveredPointIndex={setHoveredPointIndex}
+              // --- hover
 
-            // intervalMainPoint={intervalMainPoint}
-            chartElevationMin={chartElevationMin}
-            chartElevationMax={chartElevationMax}
-            chartElevationStepSize={chartElevationStepSize}
-            chartDistanceMax={chartDistanceMax}
-            chartDistStepSize={chartDistStepSize}
-          />
-        </Grid>
+              // intervalMainPoint={intervalMainPoint}
+              chartElevationMin={chartElevationMin}
+              chartElevationMax={chartElevationMax}
+              chartElevationStepSize={chartElevationStepSize}
+              chartDistanceMax={chartDistanceMax}
+              chartDistStepSize={chartDistStepSize}
+            />
+          </Grid>
+        </Stack>
       </Grid>
     </Grid>
   );
