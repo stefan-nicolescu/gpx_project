@@ -1,0 +1,20 @@
+.tooltip {
+  font-size: 12px;
+  /* font-weight: 900; */
+  /* text-align: center; */
+  padding: 3px;
+  /* margin: 1px; */
+  /* line-height: 10px; */
+  /* border-width: 0px; */
+  background-color: rgba(255, 255, 255, 1);
+  /* box-shadow: 0 0px 0px rgba(0, 0, 0, 0); */
+}
+
+.tooltip-main {
+}
+
+.tooltip-milestone {
+}
+
+.tooltip-hovered {
+}
